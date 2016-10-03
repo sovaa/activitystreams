@@ -20,4 +20,7 @@ setup(
     zip_safe=False,
     install_requires=[
         'strict-rfc3339==0.7',  # parsing dates
+    ],
+    test_requires=[
+        'nose==-1.3.7'
     ])
