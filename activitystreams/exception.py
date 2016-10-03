@@ -1,0 +1,2 @@
+class ActivityException(Exception):
+    pass
