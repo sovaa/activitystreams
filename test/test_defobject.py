@@ -26,6 +26,10 @@ class DefObjectTest(unittest.TestCase):
         obj = DefObject({Tags.SUMMARY: 'some-summary'})
         self.assertEqual(obj.summary, 'some-summary')
 
+    def test_author(self):
+        obj = DefObject({Tags.AUTHOR: {Tags.DISPLAY_NAME: 'some-name'}})
+        self.assertEqual(obj.author.display_name, 'some-name')
+
     def test_published(self):
         obj = DefObject({Tags.PUBLISHED: '2016-06-24T15:33:59+08:00'})
         self.assertEqual(obj.published, '2016-06-24T15:33:59+08:00')

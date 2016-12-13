@@ -23,6 +23,18 @@ def parse_date(raw_date, param_name, required=False):
     return raw_date
 
 
+def parse_object(raw_object, param_name, required=False):
+    from activitystreams.models.defobject import DefObject
+    if raw_object is None:
+        __raise_if_required(raw_object, param_name, required)
+        return None
+
+    if len(raw_object) == 0:
+        return None
+
+    return DefObject(raw_object)
+
+
 def parse_list_of_objects(raw_list, param_name, required=False):
     from activitystreams.models.defobject import DefObject
     if raw_list is None:

@@ -22,3 +22,4 @@ class Tags:
     TITLE = 'title'
     VERB = 'verb'
     OBJECT = 'object'
+    AUTHOR = 'author'
