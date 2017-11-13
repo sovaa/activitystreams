@@ -7,16 +7,9 @@
 }
 """
 
-from activitystreams.models.tags import Tags
-from activitystreams.utils import parse_string
+from activitystreams.models.defobject import DefObject
 
 
-class Target(object):
+class Target(DefObject):
     def __init__(self, raw):
-        if raw is None:
-            return
-
-        self.url = parse_string(raw.get(Tags.URL), 'url')
-        self.object_type = parse_string(raw.get(Tags.OBJECT_TYPE), 'objectType')
-        self.id = parse_string(raw.get(Tags.ID), 'id')
-        self.display_name = parse_string(raw.get(Tags.DISPLAY_NAME), 'displayName')
+        super(Target, self).__init__(raw)
