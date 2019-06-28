@@ -17,6 +17,7 @@ class Tags:
     ACTOR = 'actor'
     GENERATOR = 'generator'
     ICON = 'icon'
+    CONTEXT = '@context'
     PROVIDER = 'provider'
     TARGET = 'target'
     TITLE = 'title'

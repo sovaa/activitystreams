@@ -34,3 +34,12 @@ class DefObject(object):
             self.image = Image(image)
         else:
             self.image = None
+
+        for key, value in raw.items():
+            if ':' in key:
+                ext_var = '_{}'.format(key.split(':', maxsplit=1)[0])
+                ext_key = key.split(':', maxsplit=1)[1]
+
+                if ext_var not in self.__dict__:
+                    self.__dict__[ext_var] = dict()
+                self.__dict__[ext_var][ext_key] = value

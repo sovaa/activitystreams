@@ -26,6 +26,10 @@ class DefObjectTest(unittest.TestCase):
         obj = DefObject({Tags.SUMMARY: 'some-summary'})
         self.assertEqual(obj.summary, 'some-summary')
 
+    def test_extension(self):
+        obj = DefObject({'yhat:weighted': '0.4822'})
+        self.assertEqual(obj._yhat['weighted'], '0.4822')
+
     def test_author(self):
         obj = DefObject({Tags.AUTHOR: {Tags.DISPLAY_NAME: 'some-name'}})
         self.assertEqual(obj.author.display_name, 'some-name')

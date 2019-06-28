@@ -61,6 +61,7 @@ null, the verb is assumed to be "post".
 from activitystreams.models.tags import Tags
 from activitystreams.models.actor import Actor
 from activitystreams.models.generator import Generator
+from activitystreams.models.context import Context
 from activitystreams.models.icon import Icon
 from activitystreams.models.defobject import DefObject
 from activitystreams.models.provider import Provider
@@ -72,6 +73,7 @@ from activitystreams.utils import parse_string
 
 class Activity(object):
     def __init__(self, raw):
+        self.context = Context(raw.get(Tags.CONTEXT))
         self.actor = Actor(raw.get(Tags.ACTOR))
         self.generator = Generator(raw.get(Tags.GENERATOR))
         self.icon = Icon(raw.get(Tags.ICON))
