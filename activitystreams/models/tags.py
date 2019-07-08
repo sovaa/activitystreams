@@ -1,6 +1,7 @@
 class Tags:
     URL = 'url'
     OBJECT_TYPE = 'objectType'
+    TYPE = 'type'
     ID = 'id'
     IMAGE = 'image'
     WIDTH = 'width'
@@ -24,3 +25,6 @@ class Tags:
     VERB = 'verb'
     OBJECT = 'object'
     AUTHOR = 'author'
+    NAME = 'name'
+    ITEMS = 'items'
+    TOTAL_ITEMS = 'totalItems'

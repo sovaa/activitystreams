@@ -67,8 +67,10 @@ from activitystreams.models.defobject import DefObject
 from activitystreams.models.provider import Provider
 from activitystreams.models.target import Target
 
-from activitystreams.utils import parse_date
+from activitystreams.utils import parse_date, parse_extensions
+from activitystreams.utils import parse_int
 from activitystreams.utils import parse_string
+from activitystreams.utils import parse_list_of_objects
 
 
 class Activity(object):
@@ -90,3 +92,11 @@ class Activity(object):
         # [RFC3339] date-time
         self.published = parse_date(raw.get(Tags.PUBLISHED), 'published')
         self.updated = parse_date(raw.get(Tags.UPDATED), 'updated')
+
+        # v2.0
+        self.type = parse_string(raw.get(Tags.TYPE), 'type')
+        self.name = parse_string(raw.get(Tags.NAME), 'name')
+        self.total_items = parse_int(raw.get(Tags.TOTAL_ITEMS), 'totalItems')
+        self.items = parse_list_of_objects(raw.get(Tags.ITEMS), 'items')
+
+        parse_extensions(self, raw)

@@ -1,5 +1,5 @@
 from activitystreams.models.tags import Tags
-from activitystreams.utils import parse_int
+from activitystreams.utils import parse_int, parse_extensions
 from activitystreams.utils import parse_string
 
 
@@ -12,3 +12,5 @@ class MediaLink(object):
         self.duration = parse_int(raw.get(Tags.DURATION), 'duration')
         self.width = parse_int(raw.get(Tags.WIDTH), 'width')
         self.height = parse_int(raw.get(Tags.HEIGHT), 'height')
+
+        parse_extensions(self, raw)

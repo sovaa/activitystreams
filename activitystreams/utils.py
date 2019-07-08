@@ -35,6 +35,20 @@ def parse_object(raw_object, param_name, required=False):
     return DefObject(raw_object)
 
 
+def parse_extensions(_self, raw):
+    if raw is None or not type(raw) == dict:
+        return
+
+    for key, value in raw.items():
+        if ':' in key:
+            ext_var = '_{}'.format(key.split(':', maxsplit=1)[0])
+            ext_key = key.split(':', maxsplit=1)[1]
+
+            if ext_var not in _self.__dict__:
+                _self.__dict__[ext_var] = dict()
+            _self.__dict__[ext_var][ext_key] = value
+
+
 def parse_list_of_objects(raw_list, param_name, required=False):
     from activitystreams.models.defobject import DefObject
     if raw_list is None:
