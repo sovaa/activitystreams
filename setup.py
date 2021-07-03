@@ -1,8 +1,6 @@
-#!/usr/bin/env python2
-
 from setuptools import setup, find_packages
 
-version = '0.2.1'
+version = '0.2.2-dev'
 
 setup(
     name='activitystreams',
@@ -22,5 +20,5 @@ setup(
         'strict-rfc3339==0.7',  # parsing dates
     ],
     test_requires=[
-        'nose==-1.3.7'
+        'nose2==0.10.0'
     ])
