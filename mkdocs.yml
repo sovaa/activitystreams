@@ -1,0 +1,5 @@
+site_name: Activity Streams 2.0
+site_url: https://sovaa.github.io/activitystreams/
+nav:
+    - Home: index.md
+theme: readthedocs
